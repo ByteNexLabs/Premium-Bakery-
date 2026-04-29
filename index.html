@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cake Lab | Decadent Delights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        heading: ['Fredoka', 'sans-serif'],
+                    },
+                    colors: {
+                        brandBg: '#FFEBF0',      
+                        brandRed: '#E11D2E',     
+                        brandDark: '#3A1E1E',    
+                        brandCircle: '#FFAEC4',  
+                        brandCard: '#FFCDD2',    
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFEBF0; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FFEBF0; }
+        ::-webkit-scrollbar-thumb { background: #E11D2E; border-radius: 10px; }
+
+        /* Background Pattern */
+        .bg-pattern {
+            background-image: radial-gradient(#FFAEC4 2px, transparent 2px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        /* 120fps Smooth Transitions */
+        .smooth-hover {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, box-shadow;
+        }
+
+        .shadow-soft { box-shadow: 0 10px 40px rgba(225, 29, 46, 0.08); }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+    </style>
+</head>
+<body class="text-brandDark font-sans relative">
+
+    <div class="fixed inset-0 bg-pattern pointer-events-none z-[-2]"></div>
+    <div class="absolute w-[400px] h-[400px] bg-brandCircle rounded-full top-[5%] left-[-150px] opacity-30 blur-2xl z-[-1]"></div>
+
+    <nav class="container mx-auto max-w-7xl px-6 py-6 flex justify-between items-center relative z-20">
+        <div class="text-3xl font-heading font-bold text-brandRed cursor-pointer">
+            The Cake Lab<span class="text-brandDark">.</span>
+        </div>
+        
+        <div class="hidden md:flex gap-8 font-semibold text-brandDark/80 text-sm tracking-wide">
+            <a href="#" class="hover:text-brandRed transition-colors">Home</a>
+            <a href="#featured" class="hover:text-brandRed transition-colors">Cakes</a>
+            <a href="#occasions" class="hover:text-brandRed transition-colors">Occasions</a>
+            <a href="#custom" class="hover:text-brandRed transition-colors">Custom</a>
+            <a href="#faq" class="hover:text-brandRed transition-colors">FAQ</a>
+        </div>
+        
+        <div class="flex items-center gap-6">
+            <a href="https://wa.me/917384899003" class="bg-brandRed text-white px-6 py-2.5 rounded-full font-bold shadow-[0_4px_15px_rgba(225,29,46,0.4)] hover:scale-105 smooth-hover text-sm hidden md:block tracking-wide">
+                Contact Us
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-brandRed"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl absolute w-full z-40 border-b border-brandCircle">
+        <div class="flex flex-col px-6 py-5 space-y-4 font-bold text-brandDark">
+            <a href="#featured" class="mobile-link hover:text-brandRed border-b border-gray-50 pb-2">Featured Cakes</a>
+            <a href="#occasions" class="mobile-link hover:text-brandRed border-b border-gray-50 pb-2">Shop by Occasion</a>
+            <a href="#custom" class="mobile-link hover:text-brandRed border-b border-gray-50 pb-2">Custom Builder</a>
+            <a href="#faq" class="mobile-link hover:text-brandRed border-b border-gray-50 pb-2">FAQs</a>
+            <a href="https://wa.me/917384899003" class="bg-brandRed text-white text-center py-3 rounded-xl mt-4 shadow-md flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Us
+            </a>
+        </div>
+    </div>
+
+    <section class="container mx-auto max-w-7xl px-6 pt-10 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div class="space-y-6 text-center lg:text-left">
+            <h1 class="text-5xl lg:text-[4.5rem] font-heading font-bold leading-[1.1] text-brandDark tracking-tight">
+                Indulge in<br>
+                The Cake Lab's<br>
+                Chocolate Delight
+            </h1>
+            <p class="text-brandDark/70 font-semibold text-lg max-w-md mx-auto lg:mx-0 leading-relaxed">
+                Experience the rich, velvety texture of our premium chocolate cakes, baked fresh daily with 100% authentic cocoa.
+            </p>
+            <div class="pt-4 flex justify-center lg:justify-start">
+                <a href="https://wa.me/917384899003" class="bg-brandRed text-white px-10 py-4 rounded-full font-bold shadow-[0_8px_20px_rgba(225,29,46,0.4)] hover:-translate-y-1 smooth-hover text-lg flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl text-white"></i> Order Here
+                </a>
+            </div>
+            <div class="w-12 h-1 bg-brandDark/20 rounded-full mx-auto lg:mx-0 mt-8"></div>
+        </div>
+        
+        <div class="relative flex justify-center items-center w-full aspect-square max-w-[400px] mx-auto lg:max-w-[480px]">
+            <div class="absolute inset-0 bg-brandCircle rounded-full transform translate-x-4 translate-y-4 shadow-inner"></div>
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chocolate Cake" class="relative z-10 w-full h-full object-cover rounded-full border-[6px] border-white drop-shadow-xl hover:scale-105 smooth-hover">
+        </div>
+    </section>
+
+    <section class="container mx-auto max-w-7xl px-6 py-12 relative z-10">
+        <div class="bg-white/60 backdrop-blur-md rounded-[2rem] p-8 lg:p-12 shadow-sm border border-brandCircle/20">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="space-y-3 flex flex-col items-center">
+                    <div class="w-16 h-16 bg-brandRed rounded-full flex justify-center items-center text-white text-2xl shadow-md"><i class="fa-solid fa-egg"></i></div>
+                    <h4 class="font-bold font-heading text-lg text-brandDark">100% Eggless Options</h4>
+                </div>
+                <div class="space-y-3 flex flex-col items-center">
+                    <div class="w-16 h-16 bg-brandRed rounded-full flex justify-center items-center text-white text-2xl shadow-md"><i class="fa-solid fa-leaf"></i></div>
+                    <h4 class="font-bold font-heading text-lg text-brandDark">Premium Ingredients</h4>
+                </div>
+                <div class="space-y-3 flex flex-col items-center">
+                    <div class="w-16 h-16 bg-brandRed rounded-full flex justify-center items-center text-white text-2xl shadow-md"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h4 class="font-bold font-heading text-lg text-brandDark">Safe & Fast Delivery</h4>
+                </div>
+                <div class="space-y-3 flex flex-col items-center">
+                    <div class="w-16 h-16 bg-brandRed rounded-full flex justify-center items-center text-white text-2xl shadow-md"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h4 class="font-bold font-heading text-lg text-brandDark">Custom Masterpieces</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured" class="container mx-auto max-w-7xl px-6 py-20 relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-heading font-bold text-brandDark">Featured Flavors</h2>
+            <div class="w-10 h-1 bg-brandRed mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-20">
+            <div class="flex flex-col items-center group cursor-pointer">
+                <div class="w-48 h-48 bg-white rounded-full flex items-center justify-center p-2 relative shadow-lg smooth-hover group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,174,196,0.6)]">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Vanilla Bean" class="w-full h-full object-cover rounded-full">
+                </div>
+                <h3 class="mt-6 text-xl font-heading font-bold text-brandDark">Vanilla Bean</h3>
+            </div>
+
+            <div class="flex flex-col items-center group cursor-pointer">
+                <div class="w-48 h-48 bg-brandCircle rounded-full flex items-center justify-center p-2 relative shadow-lg smooth-hover group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(225,29,46,0.3)]">
+                    <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Strawberry" class="w-full h-full object-cover rounded-full">
+                </div>
+                <h3 class="mt-6 text-xl font-heading font-bold text-brandDark">Strawberry</h3>
+            </div>
+
+            <div class="flex flex-col items-center group cursor-pointer">
+                <div class="w-48 h-48 bg-white rounded-full flex items-center justify-center p-2 relative shadow-lg smooth-hover group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,174,196,0.6)]">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Salted Caramel" class="w-full h-full object-cover rounded-full">
+                </div>
+                <h3 class="mt-6 text-xl font-heading font-bold text-brandDark">Salted Caramel</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="occasions" class="container mx-auto max-w-7xl px-6 py-20 relative z-10 border-t border-brandCircle/30">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-heading font-bold text-brandDark">Shop By Occasion</h2>
+            <div class="w-10 h-1 bg-brandRed mx-auto mt-4 rounded-full"></div>
+            <p class="text-brandDark/70 font-semibold mt-4">Perfect creations for your most memorable days.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="relative rounded-[2rem] overflow-hidden group h-64 shadow-md cursor-pointer smooth-hover hover:shadow-xl">
+                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Birthday" class="w-full h-full object-cover group-hover:scale-110 smooth-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-brandDark/90 to-transparent flex flex-col justify-end p-6">
+                    <h3 class="text-white text-2xl font-heading font-bold">Birthdays</h3>
+                    <p class="text-brandBg text-sm font-semibold">Custom themes & fun designs</p>
+                </div>
+            </div>
+            <div class="relative rounded-[2rem] overflow-hidden group h-64 shadow-md cursor-pointer smooth-hover hover:shadow-xl">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wedding" class="w-full h-full object-cover group-hover:scale-110 smooth-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-brandDark/90 to-transparent flex flex-col justify-end p-6">
+                    <h3 class="text-white text-2xl font-heading font-bold">Weddings</h3>
+                    <p class="text-brandBg text-sm font-semibold">Elegant multi-tier cakes</p>
+                </div>
+            </div>
+            <div class="relative rounded-[2rem] overflow-hidden group h-64 shadow-md cursor-pointer smooth-hover hover:shadow-xl">
+                <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Anniversary" class="w-full h-full object-cover group-hover:scale-110 smooth-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-brandDark/90 to-transparent flex flex-col justify-end p-6">
+                    <h3 class="text-white text-2xl font-heading font-bold">Anniversaries</h3>
+                    <p class="text-brandBg text-sm font-semibold">Romantic & rich flavors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="seasonal" class="container mx-auto max-w-7xl px-6 py-20 relative z-10 border-t border-brandCircle/30">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-heading font-bold text-brandDark">Seasonal Specials</h2>
+            <div class="w-10 h-1 bg-brandRed mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12 lg:gap-24">
+            <div class="flex justify-center md:justify-end relative">
+                <div class="absolute w-64 h-64 bg-brandCircle rounded-full blur-3xl -z-10 opacity-60"></div>
+                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lemon Cake" class="w-full max-w-[380px] object-cover drop-shadow-2xl rounded-2xl">
+            </div>
+
+            <div class="space-y-6 text-center md:text-left">
+                <h3 class="text-4xl font-heading font-bold text-brandDark">Spring Lemon Lavender</h3>
+                <p class="text-brandDark/70 font-semibold leading-relaxed max-w-md mx-auto md:mx-0">
+                    Light, refreshing, and beautifully infused with lavender extract and zesty lemon curd. The perfect dessert for spring.
+                </p>
+                
+                <div class="flex items-center justify-center md:justify-start gap-4 py-2">
+                    <div class="w-12 h-12 bg-white rounded-full flex justify-center items-center shadow-sm border border-brandBg"><i class="fa-solid fa-lemon text-yellow-400 text-xl"></i></div>
+                    <div class="w-12 h-12 bg-brandDark rounded-full flex justify-center items-center shadow-sm"><i class="fa-solid fa-seedling text-purple-400 text-xl"></i></div>
+                    <div class="w-12 h-12 bg-[#5D3A29] rounded-full flex justify-center items-center shadow-sm"><i class="fa-solid fa-cookie text-yellow-600 text-xl"></i></div>
+                </div>
+
+                <a href="https://wa.me/917384899003?text=I want to order the Spring Lemon Lavender special!" class="bg-brandRed text-white px-8 py-3.5 rounded-full font-bold shadow-[0_8px_20px_rgba(225,29,46,0.4)] hover:-translate-y-1 smooth-hover inline-block mt-2">
+                    Order Now <i class="fa-solid fa-chevron-right ml-1 text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="custom" class="container mx-auto max-w-7xl px-6 py-20 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            
+            <div class="w-full">
+                <h2 class="text-4xl font-heading font-bold text-brandDark mb-10 text-center lg:text-left">Build Your Own Cake</h2>
+                
+                <div class="bg-white rounded-[2rem] p-6 lg:p-8 shadow-soft border border-gray-100">
+                    <form id="buildCakeForm" onsubmit="sendWhatsAppOrder(event)" class="space-y-5">
+                        
+                        <div class="flex items-center gap-4 p-4 border border-gray-100 rounded-2xl bg-white shadow-sm smooth-hover hover:border-brandCircle hover:shadow-md">
+                            <div class="w-12 h-12 bg-brandBg rounded-full flex justify-center items-center text-brandRed font-bold shrink-0"><i class="fa-solid fa-user"></i></div>
+                            <div class="flex-grow">
+                                <input type="text" id="uName" required placeholder="Your Name" class="w-full bg-transparent font-bold text-brandDark focus:outline-none text-base lg:text-lg">
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 border border-gray-100 rounded-2xl bg-white shadow-sm smooth-hover hover:border-brandCircle hover:shadow-md">
+                            <div class="w-12 h-12 bg-yellow-50 rounded-full flex justify-center items-center text-yellow-500 font-bold shrink-0"><i class="fa-solid fa-star"></i></div>
+                            <div class="flex-grow relative">
+                                <select id="uFlavor" required class="w-full bg-transparent font-bold text-brandDark focus:outline-none text-base lg:text-lg appearance-none cursor-pointer pr-8">
+                                    <option value="" disabled selected>Select Flavor...</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <option value="Vanilla">Vanilla</option>
+                                    <option value="Red Velvet">Red Velvet</option>
+                                    <option value="Fruit">Fresh Fruit</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down text-brandDark/40 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start lg:items-center gap-4 p-4 border border-gray-100 rounded-2xl bg-white shadow-sm smooth-hover hover:border-brandCircle hover:shadow-md flex-col lg:flex-row">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex justify-center items-center overflow-hidden shrink-0 hidden lg:flex">
+                                <i class="fa-solid fa-message text-blue-400"></i>
+                            </div>
+                            <div class="flex-grow w-full">
+                                <textarea id="uDetails" rows="2" placeholder="Weight & Message on cake..." class="w-full bg-transparent font-bold text-brandDark focus:outline-none resize-none pt-2"></textarea>
+                            </div>
+                            <button type="submit" class="bg-brandRed text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-red-700 smooth-hover w-full lg:w-auto whitespace-nowrap">
+                                Send <i class="fa-solid fa-paper-plane text-sm ml-1"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="w-full">
+                <h2 class="text-4xl font-heading font-bold text-brandDark mb-10 text-center lg:text-left">Customer Love</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                    <div class="bg-brandRed rounded-3xl p-6 text-white shadow-lg smooth-hover hover:-translate-y-1">
+                        <div class="flex text-yellow-300 text-lg mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <h4 class="font-bold text-xl leading-tight">Excellent Quality</h4>
+                        <p class="text-white/80 text-sm mt-2">- Riya Sharma</p>
+                    </div>
+                    
+                    <div class="bg-brandRed rounded-3xl p-6 text-white shadow-lg smooth-hover hover:-translate-y-1">
+                        <div class="flex text-yellow-300 text-lg mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <h4 class="font-bold text-xl leading-tight">So Tasty!</h4>
+                        <p class="text-white/80 text-sm mt-2">- Amit Kumar</p>
+                    </div>
+
+                    <div class="bg-brandRed rounded-3xl p-6 text-white shadow-lg smooth-hover hover:-translate-y-1">
+                        <div class="flex text-yellow-300 text-lg mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <h4 class="font-bold text-xl leading-tight">Perfect Design</h4>
+                        <p class="text-white/80 text-sm mt-2">- Neha D.</p>
+                    </div>
+
+                    <div class="bg-brandRed rounded-3xl p-6 text-white shadow-lg smooth-hover hover:-translate-y-1">
+                        <div class="flex text-yellow-300 text-lg mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <h4 class="font-bold text-xl leading-tight">Loved It!</h4>
+                        <p class="text-white/80 text-sm mt-2">- Vikram S.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <section id="faq" class="container mx-auto max-w-4xl px-6 py-20 relative z-10 border-t border-brandCircle/30">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-heading font-bold text-brandDark">Got Questions?</h2>
+            <div class="w-10 h-1 bg-brandRed mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-white rounded-2xl shadow-sm border border-brandCircle/30 cursor-pointer faq-toggle smooth-hover hover:shadow-md">
+                <div class="p-6 flex justify-between items-center font-bold text-lg text-brandDark">
+                    How do I place an order?
+                    <i class="fa-solid fa-plus text-brandRed transition-transform duration-300 faq-icon"></i>
+                </div>
+                <div class="faq-content text-brandDark/70 px-6 font-semibold">
+                    <p class="pb-6">You can build your cake using the form above or click the Contact Us button to chat directly at 7384899003.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-sm border border-brandCircle/30 cursor-pointer faq-toggle smooth-hover hover:shadow-md">
+                <div class="p-6 flex justify-between items-center font-bold text-lg text-brandDark">
+                    What is the minimum delivery time?
+                    <i class="fa-solid fa-plus text-brandRed transition-transform duration-300 faq-icon"></i>
+                </div>
+                <div class="faq-content text-brandDark/70 px-6 font-semibold">
+                    <p class="pb-6">For regular flavors, we deliver within 4-5 hours. For custom designer cakes, we request a 24-hour advance notice.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-sm border border-brandCircle/30 cursor-pointer faq-toggle smooth-hover hover:shadow-md">
+                <div class="p-6 flex justify-between items-center font-bold text-lg text-brandDark">
+                    Do you provide home delivery?
+                    <i class="fa-solid fa-plus text-brandRed transition-transform duration-300 faq-icon"></i>
+                </div>
+                <div class="faq-content text-brandDark/70 px-6 font-semibold">
+                    <p class="pb-6">Yes! We offer safe, temperature-controlled delivery across the city. Delivery charges may apply based on your exact location.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="container mx-auto px-6 py-10 border-t border-brandDark/10 relative z-10 bg-white/40 backdrop-blur-sm rounded-t-3xl mt-10">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-2xl font-heading font-bold text-brandRed">
+                The Cake Lab<span class="text-brandDark">.</span>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center gap-6 text-brandDark/70 font-bold text-sm">
+                <a href="https://wa.me/917384899003" class="hover:text-brandRed flex items-center gap-2 smooth-hover"><i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> +91 73848 99003</a>
+                <span class="hidden sm:block">|</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> Durgapur, West Bengal</span>
+            </div>
+            <div class="text-brandDark/50 text-sm font-bold">
+                &copy; 2026 The Cake Lab. All Rights Reserved. By The Sagar Mandal.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. WhatsApp Form Logic
+        function sendWhatsAppOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('uName').value;
+            const flavor = document.getElementById('uFlavor').value;
+            const details = document.getElementById('uDetails').value;
+            
+            const message = `Hi The Cake Lab! I want to build a custom cake:%0A%0A*Name:* ${name}%0A*Flavor:* ${flavor}%0A*Details:* ${details ? details : 'Will share image/details.'}%0A%0APlease let me know the quote!`;
+            
+            window.open(`https://wa.me/917384899003?text=${message}`, '_blank');
+        }
+
+        // 2. Mobile Menu
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const menuIcon = menuBtn.querySelector('i');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-xmark');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-xmark');
+            });
+        });
+
+        // 3. Smooth Accordion FAQ (Performance Optimized)
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.querySelector('.faq-content');
+                const icon = toggle.querySelector('.faq-icon');
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    faqToggles.forEach(otherToggle => {
+                        otherToggle.querySelector('.faq-content').style.maxHeight = null;
+                        otherToggle.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                    });
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.style.transform = 'rotate(135deg)'; // Rotates to look like an 'x'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
